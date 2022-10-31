@@ -1,14 +1,21 @@
 from ast import Continue
+from platform import java_ver
 
 
 def input_number():
     while True:
-        a = input('Введите первое число: ')
+        a = input('Введите число: ')
         try:
             return float(a)
         except:
             try:
-                return complex(a)
+                x = float(a.strip('j'))
+                while True:
+                    y = input("Введите реальную часть комплексоного числа ")
+                    try:
+                        return complex(float(y),x)
+                    except:
+                        print('Не верный ввод, попробуйе снова ')
             except:
                 print('Не верный ввод, попробуйе снова ')
 
